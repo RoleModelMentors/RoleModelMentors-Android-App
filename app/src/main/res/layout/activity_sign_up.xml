@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#218B95"
+    tools:context="com.rolemodelmentors.android.app.activities.SignUpActivity">
+
+    <Button
+        android:text="Enroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logoView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp"
+        android:textColor="#ffffff"
+        android:backgroundTint="#176f77"
+        android:id="@+id/button" />
+
+    <Button
+        android:text="Be A Mentor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff"
+        android:backgroundTint="#176f77"
+        android:id="@+id/button3" />
+
+    <TextView
+        android:text="or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/textView4"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:text="Learn More"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:id="@+id/learnMore" />
+
+    <TextView
+        android:text="Do you want to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/button3"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="101dp"
+        app:srcCompat="@drawable/ic_logo_white"
+        android:id="@+id/logoView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
