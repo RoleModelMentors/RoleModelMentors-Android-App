@@ -26,49 +26,37 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
-            <com.github.florent37.materialtextfield.MaterialTextField
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/materialEmail"
+
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:layout_below="@+id/logoView"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                app:mtf_image="@drawable/ic_email_black_24dp"
-                android:foregroundTint="#808080"
-                app:mtf_openKeyboardOnFocus="true">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:textColor="#333"
-                    android:textColorHint="#666"
-                    android:textSize="15sp"
-                    android:id="@+id/emailField"/>
-
-            </com.github.florent37.materialtextfield.MaterialTextField>
-
-            <com.github.florent37.materialtextfield.MaterialTextField
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/materialPassword"
-                android:layout_below="@+id/materialEmail"
+                app:mtf_openKeyboardOnFocus="true"
+                android:id="@+id/emailField"
+                app:met_floatingLabel="highlight"
+                app:met_baseColor="#ffffff"
+                app:met_underlineColor="#ffffff"
+                app:met_floatingLabelTextColor="#ffffff"
+                android:inputType="textWebEmailAddress"
+                android:hint="Email"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_below="@+id/emailField"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentStart="true"
-                app:mtf_image="@drawable/ic_lock_black_24dp"
-                app:mtf_openKeyboardOnFocus="true">
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:mtf_openKeyboardOnFocus="true"
+                android:id="@+id/passwordField"
+                app:met_floatingLabel="highlight"
+                app:met_baseColor="#ffffff"
+                android:inputType="textPassword"
+                app:met_underlineColor="#ffffff"
+                app:met_floatingLabelTextColor="#ffffff"
+                android:hint="Password"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:textColor="#333"
-                    android:textColorHint="#666"
-                    android:textSize="15sp"
-                    android:inputType="textPassword"
-                    android:id="@+id/passwordField"/>
-
-            </com.github.florent37.materialtextfield.MaterialTextField>
 
             <Button
                 android:text="Login"
@@ -79,9 +67,9 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:textColor="#ffffff"
                 android:backgroundTint="#176f77"
-                android:layout_below="@+id/materialPassword"
+                android:layout_below="@+id/passwordField"
                 android:layout_marginTop="14dp"
-                android:layout_alignStart="@+id/materialPassword"
+                android:layout_alignStart="@+id/passwordField"
                 android:layout_alignParentEnd="true" />
 
             <TextView
@@ -90,8 +78,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/loginButton"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/sign_up" />
+                android:id="@+id/sign_up"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:textAlignment="center" />
 
         </RelativeLayout>
 

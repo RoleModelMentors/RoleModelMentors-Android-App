@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "958562583545",
+    "firebase_url": "https://rolemodelmentors-9b0fc.firebaseio.com",
+    "project_id": "rolemodelmentors-9b0fc",
+    "storage_bucket": "rolemodelmentors-9b0fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958562583545:android:d236139856bff7b9",
+        "android_client_info": {
+          "package_name": "com.rolemodelmentors.android.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958562583545-jq13to2f5oqq3sed8g4m3lq777ri6qbn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rolemodelmentors.android.app",
+            "certificate_hash": "76bf27dafc716e1d1acfb264424c0d8095eb07a6"
+          }
+        },
+        {
+          "client_id": "958562583545-u8kn472ud6g4c8p7p1fubt6u7rp4of14.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEsReE-ytamCTtHKXx8oyRgOFe4rpDnIs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958562583545-u8kn472ud6g4c8p7p1fubt6u7rp4of14.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
