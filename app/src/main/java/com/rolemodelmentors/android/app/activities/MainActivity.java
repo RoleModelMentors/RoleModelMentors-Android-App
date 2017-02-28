@@ -31,6 +31,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FileDownloadTask;
@@ -227,10 +228,11 @@ public class MainActivity extends AppCompatActivity {
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Home").withIcon(GoogleMaterial.Icon.gmd_home);
         SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName("Settings").withIcon(GoogleMaterial.Icon.gmd_settings);
         SecondaryDrawerItem item3 = new SecondaryDrawerItem().withName("About").withIcon(GoogleMaterial.Icon.gmd_info);
-        SecondaryDrawerItem item4 = new SecondaryDrawerItem().withName("Chat").withIcon(GoogleMaterial.Icon.gmd_chat);
+        SecondaryDrawerItem item4 = new SecondaryDrawerItem().withName("Payments").withIcon(GoogleMaterial.Icon.gmd_attach_money);
         SecondaryDrawerItem item5 = new SecondaryDrawerItem().withName("Session Log").withIcon(GoogleMaterial.Icon.gmd_timer);
         SecondaryDrawerItem item6 = new SecondaryDrawerItem().withName("About").withIcon(GoogleMaterial.Icon.gmd_info);
         SecondaryDrawerItem item7 = new SecondaryDrawerItem().withName("Sign Out").withIcon(GoogleMaterial.Icon.gmd_lock);
+        SecondaryDrawerItem item8 = new SecondaryDrawerItem().withName("Account").withIcon(GoogleMaterial.Icon.gmd_account_circle);
         //Create navigation drawer
 
         result = new DrawerBuilder()
@@ -241,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
                         item1,
                         item4,
                         item5,
+                        item8,
                         new DividerDrawerItem(),
                         item2,
                         item3,
@@ -249,12 +252,16 @@ public class MainActivity extends AppCompatActivity {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        Log.d("RadioControl", "The drawer is at position " + position);
+                        Log.d("RoleModelMentors", "The drawer is at position " + position);
                         //About button
                         if (position == 3) {
-                            //startSettingsActivity();
-                            Log.d("drawer", "Started settings activity");
-                        } else if (position == 7) {
+                            FirebaseCrash.log("Activity created");
+                            Intent intent = new Intent(getApplicationContext(), SessionLogActivity.class);
+                            startActivity(intent);
+                        }else if (position == 4){
+                            Intent intent = new Intent(getApplicationContext(), AccountActivity.class);
+                            startActivity(intent);
+                        }else if (position == 8) {
                             FirebaseAuth.getInstance().signOut();
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                             LoginActivity.signedOut();
