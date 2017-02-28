@@ -1,7 +1,10 @@
 package com.rolemodelmentors.android.app.activities;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -14,9 +17,15 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.credentials.Credential;
+import com.google.android.gms.common.api.Result;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,7 +36,7 @@ import com.rolemodelmentors.android.app.R;
 import utilities.NetworkUtilities;
 
 public class LoginActivity extends AppCompatActivity {
-    CoordinatorLayout clayout;
+    static CoordinatorLayout clayout;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -49,11 +58,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d("RoleModelMentors", "onAuthStateChanged:signed_in:" + user.getUid());
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
                 } else {
                     // User is signed out
                     Log.d("RoleModelMentors", "onAuthStateChanged:signed_out");
                 }
-                // ...
             }
         };
 
@@ -68,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = usernameEditText.getText().toString();
                 //TODO encrypt password
                 String passwd = passwordEditText.getText().toString();
+                hideSoftKeyboard(LoginActivity.this);
 
 
                 if (email.isEmpty() && passwd.isEmpty()) {
@@ -90,6 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else if (!email.isEmpty() && !passwd.isEmpty()){
                     if(isEmailValid(email)){
+                        Credential credential = new Credential.Builder(email)
+                                .setPassword(passwd)
+                                .build();
+
                         signIn(email,passwd);
                     }
                     else{
@@ -134,6 +149,12 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+    public static void signedOut(){
+        Snackbar snackbar = Snackbar
+                .make(clayout, "You have been signed out", Snackbar.LENGTH_LONG);
+
+        snackbar.show();
+    }
     public void checkInternet(){
         if(!NetworkUtilities.isConnected(getApplicationContext())){
             Snackbar snackbar = Snackbar
@@ -150,10 +171,18 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("RoleModelMentors","You Passed");
         }
     }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+    //Email Signin
     private void signIn(String email, String password) {
         Log.d("RoleModelMentors", "signIn:" + email);
-
-
+        final ProgressBar viewProgressBar = (ProgressBar)findViewById(R.id.loginStatus);
+        viewProgressBar.setVisibility(View.VISIBLE);
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -166,16 +195,19 @@ public class LoginActivity extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w("RoleModelMentors", "signInWithEmail:failed", task.getException());
-                            Toast.makeText(LoginActivity.this, R.string.auth_failed,
-                                    Toast.LENGTH_SHORT).show();
+                            viewProgressBar.setVisibility(View.INVISIBLE);
+                            Snackbar snackbar = Snackbar
+                                    .make(clayout, "Login Failed! Try Again", Snackbar.LENGTH_LONG);
+
+                            snackbar.show();
                         }
                         else if(task.isSuccessful()) {
                             Log.d("RoleModelMentors","Signin success");
+                            viewProgressBar.setVisibility(View.INVISIBLE);
                             loadMainActivity();
                         }
 
                     }
                 });
-        // [END sign_in_with_email]
     }
 }

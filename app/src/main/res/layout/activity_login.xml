@@ -83,6 +83,16 @@
                 android:layout_alignParentEnd="true"
                 android:textAlignment="center" />
 
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sign_up"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="58dp"
+                android:id="@+id/loginStatus"
+                android:visibility="invisible" />
+
         </RelativeLayout>
 
 
