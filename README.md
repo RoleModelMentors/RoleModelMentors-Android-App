@@ -1,6 +1,13 @@
 # RoleModelMentors-Android-App
 The android version
 
+# Screenshots
+
+Login Screen
+![screen1](http://nikhilp.org/rmm/screen1.png)
+
+Navigation Drawer
+![screen2](http://nikhilp.org/rmm/screen2.png)
 
 # Changes:
 Created basic app:
