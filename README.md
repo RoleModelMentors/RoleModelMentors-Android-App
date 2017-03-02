@@ -4,10 +4,12 @@ The android version
 # Screenshots
 
 Login Screen
-<a href="url"><img src="http://nikhilp.org/rmm/screen2.png" align="left" height="25%" width="25%" ></a>
+
+<a href="url"><img src="http://nikhilp.org/rmm/screen2.png" height="25%" width="25%" ></a>
 
 Navigation Drawer
-<a href="url"><img src="http://nikhilp.org/rmm/screen1.png" align="left" height="25%" width="25%" ></a>
+
+<a href="url"><img src="http://nikhilp.org/rmm/screen1.png" height="25%" width="25%" ></a>
 
 
 # Changes:
