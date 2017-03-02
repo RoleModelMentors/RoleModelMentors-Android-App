@@ -4,10 +4,11 @@ The android version
 # Screenshots
 
 Login Screen
-![screen1](http://nikhilp.org/rmm/screen1.png)
+<a href="url"><img src="http://nikhilp.org/rmm/screen2.png" align="left" height="25%" width="25%" ></a>
 
 Navigation Drawer
-![screen2](http://nikhilp.org/rmm/screen2.png)
+<a href="url"><img src="http://nikhilp.org/rmm/screen1.png" align="left" height="25%" width="25%" ></a>
+
 
 # Changes:
 Created basic app:
