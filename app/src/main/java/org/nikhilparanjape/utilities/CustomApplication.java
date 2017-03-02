@@ -1,4 +1,4 @@
-package utilities;
+package org.nikhilparanjape.utilities;
 
 import android.app.Application;
 import android.content.Context;

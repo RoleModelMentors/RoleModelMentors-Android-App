@@ -50,15 +50,12 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
-import com.mikepenz.materialdrawer.util.DrawerImageLoader;
-import com.mikepenz.materialdrawer.util.DrawerUIUtils;
 import com.rolemodelmentors.android.app.R;
 
 import java.io.File;
 import java.io.IOException;
 
-import utilities.CustomApplication;
+import org.nikhilparanjape.utilities.CustomApplication;
 
 public class MainActivity extends AppCompatActivity {
 
